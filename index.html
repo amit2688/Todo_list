@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo List</title>
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+
+<body>
+    <div class="todo-container">
+      <div class="input">
+        <input type="text" class="form-control" name="" placeholder="New Task">
+        <div class="svg-img">
+         <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 
+            32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+        </svg>
+    </div>
+      </div>
+      <ul class="todo-list">
+       
+      </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var count=0
+            $(".svg-img").click(function(){
+             var inputval=$(".form-control").val();
+             if(inputval!=''){
+                count++
+              $(".todo-list").append('<li><div class="left-count"><input type="checkbox" id="check-'+count+'" name=""><label for="check-'+count+'"></label> <span>'+inputval+'</span></div><span class="remove"><img src="delete.png" alt="img" class="delete-img"></span></li>')  
+             }
+             $(".form-control").val('');
+             
+            })
+            $(document).on('change','input[type="checkbox"]',function(){
+               if ($(this).is(':checked'))
+                {
+                 $(this).closest("li").children(".remove").addClass("active");
+                }
+                else{
+                    $(this).closest("li").children(".remove").removeClass("active");  
+                }
+            })
+            $(document).on('click', '.remove',function(){
+                $(this).parent().remove();
+            })
+        })
+    </script>
+</body>
+</html>

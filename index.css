@@ -1,0 +1,121 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #161117;
+    display: flex;
+}
+.todo-container{
+    width: 40%;
+}
+
+.input{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    align-items: center;
+}
+.svg-img{
+    background-color: #ffc800;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    border-radius: 10%;
+    justify-content: center;
+    align-items: center;
+}
+.icon{
+    width: 30px;
+    height: 30px;
+    margin-top: 3px;
+    cursor: pointer;
+    font-size: 30px;   
+}
+.input .form-control{
+    border: none;
+    height: 90px;
+    border-radius: 10px;
+    width: 90%;
+    padding: 0px 20px;
+    margin-left: 25px;
+    margin-top: 15px;
+    font-size: 25px;
+     font-weight: 700;
+    background: transparent;
+    color: #838284;
+    box-shadow: -6px -6px 10px rgba(255, 255, 0.03),
+                6px 6px 10px rgba(10, 8, 10,0.8),
+              inset  -6px -6px 10px rgba(255, 255, 0.05),
+              inset  6px 6px 10px rgba(12, 8, 12,0.8);   
+}
+.input .form-control:focus{
+    outline: none;
+}
+.todo-list li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #221525;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+    padding: 15px;
+     font-size: 25px;
+     font-weight: 700;
+     font-family: sans-serif;
+    color: #716973;
+}
+.delete-img{
+    width: 40px;
+    height: 40px;
+}
+.left-count input{
+    display: none;    
+}
+.left-count label{
+    position: relative;
+    cursor: pointer;
+}
+.left-count label:before{
+    content: '';
+    padding: 11px;
+    display: inline-block;
+    position: relative;
+    margin-right: 8px;
+    vertical-align: middle;
+    background: #412d46;
+    border-radius: 3px;
+}
+.left-count input:checked + label::before{
+    background: #ffc800;
+}
+.left-count input:checked + label::after{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    top: 4px;
+    left: 8px;
+    border:solid  #221525;
+    width: 5px;
+    height: 12px;
+    border-width: 0px 2px 2px 0px;
+    transform: rotate(45deg);
+}
+.remove{
+    cursor: pointer;
+    color: #ff0047;
+    line-height: 1;
+    transform: translateY(55px);
+
+    transition: 0.5s;
+}
+.remove.active{
+    transform: translateY(0px);
+
+    transition: .5s;
+}
